@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sales Analytics Use Case</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,38 +17,35 @@
 </head>
 <body class="bg-white text-gray-800">
 
- 
   <!-- Header with Navigation -->
-  <header class="bg-gray-50 shadow py-8 px-4 mb-8">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-3xl font-bold gradient-text">Sales Analytics Use Case</h1>
-      <div class="flex space-x-4">
-        <!-- Back to Use Case -->
-        <a href="use_case_page.html" class="text-blue-600 hover:underline text-sm">← Back to Use Case</a>
-        <!-- Back to Home -->
-        <a href="file:///C:/Users/ak/Desktop/web_app/marketing_dashboard/home.html" class="text-blue-600 hover:underline text-sm">← Back to Home</a>
+  <header class="bg-gray-50 shadow py-6 px-4 mb-8">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <h1 class="text-2xl md:text-3xl font-bold gradient-text">Sales Analytics Use Case</h1>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a href="all_use_cases.html" class="text-blue-600 hover:underline">← Back to Use Case</a>
+        <a href="index.html" class="text-blue-600 hover:underline">← Back to Home</a>
       </div>
     </div>
   </header>
 
   <!-- Content -->
-  <main class="max-w-4xl mx-auto px-6 space-y-10">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
     <section>
-      <h2 class="text-xl font-semibold mb-2">🔍 The Problem</h2>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">🔍 The Problem</h2>
       <p class="text-gray-700">
         Sales teams struggle with piecing together data from multiple CRM systems, spreadsheets, and databases. The result is inefficient reporting and delayed decision-making that can hurt sales performance.
       </p>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold mb-2">💡 The Opportunity</h2>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">💡 The Opportunity</h2>
       <p class="text-gray-700">
         A sales analytics dashboard can provide a single, consolidated view of your sales pipeline, performance metrics, and KPIs, empowering sales teams to make faster, data-driven decisions.
       </p>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold mb-2">⚙️ How I Build It</h2>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">⚙️ How I Build It</h2>
       <ul class="list-disc pl-6 text-gray-700 space-y-2">
         <li>Integrate data from CRM systems, sales tools, and spreadsheets.</li>
         <li>Use Python and SQL to clean, transform, and structure the data.</li>
@@ -57,14 +55,14 @@
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold mb-2">📈 The Impact</h2>
+      <h2 class="text-lg sm:text-xl font-semibold mb-2">📈 The Impact</h2>
       <p class="text-gray-700">
         With a centralized dashboard, sales teams can gain insights into their pipeline at a glance, improve forecasting, and prioritize the right leads, leading to improved sales performance and revenue.
       </p>
     </section>
 
     <section class="bg-blue-50 p-6 rounded-xl text-center">
-      <h3 class="text-xl font-bold mb-2">Let’s Build Yours Next</h3>
+      <h3 class="text-lg sm:text-xl font-bold mb-2">Let’s Build Yours Next</h3>
       <p class="text-gray-700 mb-4">Ready to optimize your sales analytics? Let's collaborate on building a tailored dashboard for your team.</p>
       <a href="mailto:rohandatafreelance@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
         Schedule a Call
@@ -72,19 +70,14 @@
     </section>
   </main>
 
-  <!-- Footer with Navigation -->
-<footer class="text-center text-sm text-gray-500 py-8">
-  <div class="mb-2">
-    <!-- Back to Use Case -->
-    <a href="use_case_page.html" class="text-blue-600 hover:underline">← Back to Use Case</a>
-    <!-- Back to Home -->
-    <a href="file:///C:/Users/ak/Desktop/web_app/marketing_dashboard/home.html" class="text-blue-600 hover:underline ml-4">← Back to Home</a>
-  </div>
-  <div>
-    &copy; 2025 Nikhil N — Data Analytics Consultant. All rights reserved.
-  </div>
-</footer>
-
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-8 px-4">
+    <div class="mb-2 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
+      <a href="all_use_cases.html" class="text-blue-600 hover:underline">← Back to Use Case</a>
+      <a href="index.html" class="text-blue-600 hover:underline">← Back to Home</a>
+    </div>
+    <div>&copy; 2025 Nikhil N — Data Analytics Consultant. All rights reserved.</div>
+  </footer>
 
 </body>
 </html>
