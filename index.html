@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Nikhil N — Data Analytics Consultant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-<!-- Favicons -->
-<link rel="icon" href="assets/img/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
   <style>
-    body { font-family: 'Outfit', sans-serif; }
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
     .gradient-text {
       background: linear-gradient(to right, #6366f1, #06b6d4);
       -webkit-background-clip: text;
@@ -32,12 +31,12 @@
     }
   </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 overflow-x-hidden">
 
   <!-- Header -->
   <header class="bg-gray-50 shadow py-16 px-4">
     <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-5xl font-bold gradient-text mb-4">Make Smarter Decisions with Data</h1>
+      <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4">Make Smarter Decisions with Data</h1>
       <p class="text-gray-600 text-lg max-w-2xl mx-auto">
         I’m Nikhil N, a Data Analytics Consultant helping businesses of all sizes turn raw data into meaningful insights — fast, efficient, and cost-effective.
       </p>
@@ -47,11 +46,12 @@
     </div>
   </header>
 
-  <!-- What I Can Help You With -->
-  <main class="max-w-6xl mx-auto px-6 py-16 space-y-16">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+
+    <!-- What I Can Help You With -->
     <section>
       <h2 class="text-2xl font-bold mb-6 text-center">💡 What I Can Help You With</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
         <div class="card">
           <h3 class="text-xl font-semibold mb-2">📊 Custom Dashboards</h3>
           <p>I design clear, tailored dashboards that convert data into visual stories for better decisions and strategy alignment.</p>
@@ -71,135 +71,109 @@
       </div>
     </section>
 
-
-<!-- Skills Section -->
-<section class="max-w-6xl mx-auto px-6 py-16 space-y-12">
-  <h2 class="text-3xl font-bold text-center mb-10">🛠️ Skill Set</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
-    
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">📊 Data Analytics Tools</h3>
-      <p>Power BI, Metabase, Tableau, Excel, Google Sheets, Looker Studio</p>
-    </div>
-    
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">🧮 Programming & Scripting</h3>
-      <p>Python (Pandas, NumPy), SQL, Git, REST APIs</p>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">🗃️ Data Engineering</h3>
-      <p>DBT, Apache Airflow, ETL/ELT, Data Pipelines</p>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">❄️ Data Warehousing</h3>
-      <p>Snowflake, Google BigQuery, SQL-based modeling</p>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">☁️ Cloud & Deployment</h3>
-      <p>AWS (EC2, S3), GitHub Pages, Streamlit for Web Apps</p>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">📈 Business Intelligence</h3>
-      <p>KPI Design, Report Automation, Insight Storytelling</p>
-    </div>
-
-  </div>
-</section>
-
-
-
+    <!-- Skills Section -->
+    <section>
+      <h2 class="text-3xl font-bold text-center mb-10">🛠️ Skill Set</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">📊 Data Analytics Tools</h3>
+          <p>Power BI, Metabase, Tableau, Excel, Google Sheets, Looker Studio</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">🧮 Programming & Scripting</h3>
+          <p>Python (Pandas, NumPy), SQL, Git, REST APIs</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">🗃️ Data Engineering</h3>
+          <p>DBT, Apache Airflow, ETL/ELT, Data Pipelines</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">❄️ Data Warehousing</h3>
+          <p>Snowflake, Google BigQuery, SQL-based modeling</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">☁️ Cloud & Deployment</h3>
+          <p>AWS (EC2, S3), GitHub Pages, Streamlit for Web Apps</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">📈 Business Intelligence</h3>
+          <p>KPI Design, Report Automation, Insight Storytelling</p>
+        </div>
+      </div>
+    </section>
 
     <!-- Real Use Cases Section -->
-<section class="space-y-12">
-  <h2 class="text-3xl font-bold text-center mb-10">🚀 Real Use Cases: Data Analytics in Action</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+    <section>
+      <h2 class="text-3xl font-bold text-center mb-10">🚀 Real Use Cases: Data Analytics in Action</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+        <div class="card">
+          <h3 class="text-2xl font-semibold mb-2">📊 Marketing Dashboard</h3>
+          <p><strong>Problem:</strong> Businesses often waste time switching between platforms to track performance.</p>
+          <p><strong>Solution:</strong> Developed an automated dashboard consolidating key marketing metrics into one clean view.</p>
+          <p><strong>Outcome:</strong> Clients gained real-time insights, reducing time spent on manual reporting.</p>
+          <a href="#" class="text-indigo-600 hover:underline">See How It Works →</a>
+        </div>
+        <div class="card">
+          <h3 class="text-2xl font-semibold mb-2">💼 Sales Analytics Dashboard</h3>
+          <p><strong>Problem:</strong> Sales teams struggled to analyze performance across regions and salespeople.</p>
+          <p><strong>Solution:</strong> Designed a dashboard that tracks and visualizes sales performance, improving decision-making.</p>
+          <p><strong>Outcome:</strong> Clients improved sales by identifying trends and areas for improvement.</p>
+          <a href="#" class="text-indigo-600 hover:underline">See How It Works →</a>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="#" class="inline-block text-blue-600 hover:text-blue-800 transition">
+          View More Use Cases
+        </a>
+      </div>
+    </section>
 
-    <!-- Marketing Dashboard -->
-    <div class="card">
-      <h3 class="text-2xl font-semibold mb-2">📊 Marketing Dashboard</h3>
-      <p><strong>Problem:</strong> Businesses often waste time switching between platforms to track performance.</p>
-      <p><strong>Solution:</strong> Developed an automated dashboard consolidating key marketing metrics into one clean view.</p>
-      <p><strong>Outcome:</strong> Clients gained real-time insights, reducing time spent on manual reporting.</p>
-      <a href="file:///C:/Users/ak/Desktop/web_app/marketing_dashboard/marketing_dashboard.html" class="text-indigo-600 hover:underline">See How It Works →</a>
-    </div>
-
-    <!-- Sales Analytics Dashboard -->
-    <div class="card">
-      <h3 class="text-2xl font-semibold mb-2">💼 Sales Analytics Dashboard</h3>
-      <p><strong>Problem:</strong> Sales teams struggled to analyze performance across regions and salespeople.</p>
-      <p><strong>Solution:</strong> Designed a dashboard that tracks and visualizes sales performance, improving decision-making.</p>
-      <p><strong>Outcome:</strong> Clients improved sales by identifying trends and areas for improvement.</p>
-      <a href="file:///C:/Users/ak/Desktop/web_app/marketing_dashboard/sales_dashboard.html" class="text-indigo-600 hover:underline">See How It Works →</a>
-    </div>
-
-  </div>
-
-  <!-- View More Button for Use Cases -->
-  <div class="text-center mt-8">
-    <a href="file:///C:/Users/ak/Desktop/web_app/marketing_dashboard/all_use_cases.html" class="inline-block text-blue-600 hover:text-blue-800 transition">
-      View More Use Cases
-    </a>
-  </div>
-</section>
-
-
-
-<!-- Blog -->
-
-<section>
-  <h2 class="text-3xl font-bold text-center mb-10">📚 Blogs</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
-    
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">🔍 How to Export a Day Book from Tally and Convert it to CSV Using Python</h3>
-      <p class="mb-2">Learn how to automate Tally report exports and convert them into structured CSVs using simple Python scripts.</p>
-      <a href="https://medium.com/@yourusername/how-to-export-a-detailed-day-book-from-tally-and-convert-it-to-csv-using-python-xyz" class="text-indigo-600 hover:underline" target="_blank">Read More →</a>
-    </div>
-
-    <div class="card">
-      <h3 class="text-xl font-semibold mb-2">💻 Connecting to Tally Database via ODBC Using Python</h3>
-      <p class="mb-2">This guide explains how to connect Python to Tally using ODBC for real-time data extraction.</p>
-      <a href="https://medium.com/@yourusername/connecting-to-tally-database-via-odbc-using-python-abc" class="text-indigo-600 hover:underline" target="_blank">Read More →</a>
-    </div>
-
-  </div>
-</section>
-<!-- Medium Blog Button -->
-<div class="text-center mt-8">
-  <a href="https://medium.com/@yourusername" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 transition">
-    Explore More Blogs
-  </a>
-</div>
+    <!-- Blogs Section -->
+    <section>
+      <h2 class="text-3xl font-bold text-center mb-10">📚 Blogs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">🔍 Export Day Book from Tally with Python</h3>
+          <p class="mb-2">Automate Tally exports and convert to CSVs using Python scripts.</p>
+          <a href="https://medium.com/@yourusername/how-to-export-a-detailed-day-book-from-tally-and-convert-it-to-csv-using-python-xyz" class="text-indigo-600 hover:underline" target="_blank">Read More →</a>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2">💻 Connect Tally via ODBC in Python</h3>
+          <p class="mb-2">Guide to connect Python with Tally using ODBC for live data.</p>
+          <a href="https://medium.com/@yourusername/connecting-to-tally-database-via-odbc-using-python-abc" class="text-indigo-600 hover:underline" target="_blank">Read More →</a>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="https://medium.com/@yourusername" target="_blank" class="inline-block text-blue-600 hover:text-blue-800 transition">
+          Explore More Blogs
+        </a>
+      </div>
+    </section>
 
     <!-- CTA Section -->
-    <section class="bg-gray-100 p-8 rounded-xl text-center">
+    <section class="bg-gray-100 p-8 rounded-xl text-center mt-12">
       <h3 class="text-xl font-bold mb-2">Let’s Make Your Data Work Smarter</h3>
       <p class="text-gray-700 mb-4">From automating reports to centralizing data and uncovering insights, let’s collaborate to create high-impact solutions for your business.</p>
       <a href="mailto:rohandatafreelance@gmail.com" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
         Contact Me
       </a>
     </section>
+
   </main>
 
- <!-- Footer Section -->
-<footer class="bg-gray-50 shadow py-8 mt-8">
-  <div class="max-w-6xl mx-auto text-center space-y-4">
-    <div class="flex justify-center space-x-6 text-lg">
-      <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600 transition">🔗 LinkedIn</a>
-      <a href="https://github.com/your-username" target="_blank" class="hover:text-gray-800 transition">🐙 GitHub</a>
-      <a href="https://medium.com/@your-username" target="_blank" class="hover:text-green-600 transition">✍️ Medium</a>
+  <!-- Footer -->
+  <footer class="bg-gray-50 shadow py-8 mt-12">
+    <div class="max-w-6xl mx-auto text-center space-y-4">
+      <div class="flex justify-center space-x-6 text-lg flex-wrap">
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600 transition">🔗 LinkedIn</a>
+        <a href="https://github.com/your-username" target="_blank" class="hover:text-gray-800 transition">🐙 GitHub</a>
+        <a href="https://medium.com/@your-username" target="_blank" class="hover:text-green-600 transition">✍️ Medium</a>
+      </div>
+      <div class="text-sm text-gray-500">
+        &copy; 2025 Nikhil N — Data Analytics Consultant. All rights reserved.
+      </div>
     </div>
-    <div class="text-sm text-gray-500">
-      &copy; 2025 Nikhil N — Data Analytics Consultant. All rights reserved.
-    </div>
-  </div>
-</footer>
-
-
+  </footer>
 
 </body>
 </html>
