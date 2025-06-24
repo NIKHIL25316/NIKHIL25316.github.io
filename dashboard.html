@@ -10,40 +10,95 @@
   <style>
     body {
       font-family: 'Outfit', sans-serif;
-      background: #ffffff; /* Set background to white */
+      background: #ffffff;
       color: #2d3748;
     }
 
-    /* Sidebar Styles */
     .sidebar {
-      background: linear-gradient(to bottom, #6366f1, #06b6d4); /* Blue-Teal Gradient */
+      background: linear-gradient(to bottom, #6366f1, #06b6d4);
       color: white;
       width: 80px;
       height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start; /* Top-aligned */
+      justify-content: flex-start;
       padding-top: 20px;
       position: fixed;
       top: 0;
+      z-index: 10;
     }
 
     .sidebar-item {
-      font-size: 18px;
-      color: white;
       margin-bottom: 20px;
-      text-align: center;
       cursor: pointer;
-      transition: color 0.3s ease;
     }
 
-    .sidebar-item:hover {
-      color: #f0f4f8;
-      transition: color 0.3s ease;
+    .sidebar-button {
+      background-color: white;
+      color: #1e40af;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      text-align: center;
+      width: 70px;
+      transition: background-color 0.2s ease;
     }
 
-    /* Dropdown Box */
+    .sidebar-button:hover {
+      background-color: #f3f4f6;
+    }
+
+    .user-dropdown {
+      position: absolute;
+      top: 60px;
+      left: 70px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 180px;
+      display: none;
+      z-index: 50;
+    }
+
+    .user-dropdown.show {
+      display: block;
+    }
+
+    .user-dropdown-item {
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #333;
+      cursor: default;
+    }
+
+    .logout-item {
+      padding: 10px 16px;
+      font-size: 14px;
+      color: red;
+      cursor: pointer;
+    }
+
+    .logout-item:hover {
+      background-color: #ffecec;
+    }
+
+    .user-icon {
+      background-color: white;
+      color: #6366f1;
+      border-radius: 9999px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
     .dropdown {
       border: 2px solid #000;
       background-color: white;
@@ -60,14 +115,13 @@
       color: black;
     }
 
-    /* Dashboard iframe container with subtle border */
     .iframe-container {
       width: 100%;
-      height: 80vh;  /* Adjusted height for better display */
-      border: 1px solid #e2e8f0; /* Light border color */
-      border-radius: 8px; /* Rounded corners for the iframe */
-      padding: 10px; /* Some padding inside the iframe container */
-      background-color: #ffffff; /* Make iframe background match with the rest of the page */
+      height: 80vh;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #ffffff;
     }
 
     .iframe-container iframe {
@@ -80,70 +134,109 @@
 </head>
 <body>
 
-  <div class="flex">
-    <!-- Left Sidebar (Navigation) -->
-    <div class="sidebar">
-      <!-- Profile Text -->
-      <div class="sidebar-item">
-        Profile
-      </div>
-      <!-- Reports Text -->
-      <div class="sidebar-item">
-        Reports
-      </div>
-      <!-- Help Text -->
-      <div class="sidebar-item">
-        Help
+<div class="flex">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Profile Icon -->
+    <div class="sidebar-item relative">
+      <div class="user-icon" onclick="toggleDropdown()" title="User">U</div>
+      <div id="userDropdown" class="user-dropdown">
+        <div class="user-dropdown-item">demo</div>
+        <div class="logout-item" onclick="logout()">Logout</div>
       </div>
     </div>
 
-    <!-- Main Content Area (Dashboard) -->
-    <div class="flex-1 p-8 ml-20 space-y-8">
-      <!-- Dropdown (Select Dashboard) -->
-      <div class="py-4 px-6 flex justify-between items-center text-black">
-        <select class="dropdown" id="dashboardSelect" onchange="updateDashboard()">
-          <option value="marketing">Marketing Dashboard</option>
-          <option value="sales">Sales Dashboard</option>
-          <option value="inventory">Inventory Dashboard</option>
-          <option value="finance">Finance Reports</option>
-        </select>
-      </div>
+    <!-- Reports Icon -->
+    <div class="sidebar-item">
+      <div class="user-icon" title="Reports">📊</div>
+    </div>
 
-      <!-- Embed the Dashboard iframe here -->
-      <div class="card">
-        <div class="iframe-container">
-          <iframe id="dashboardIframe" class="iframe-container" title="Dashboard"></iframe>
-        </div>
+    <!-- Help Icon -->
+    <div class="sidebar-item relative">
+      <div class="user-icon" onclick="toggleHelp()" title="Help">❓</div>
+      <div id="helpPopup" class="user-dropdown">
+        <div class="user-dropdown-item">Send queries to<br><b>demo@xyz.com</b></div>
       </div>
     </div>
   </div>
 
-  <script>
-    function updateDashboard() {
-      const iframe = document.getElementById("dashboardIframe");
-      const selectedValue = document.getElementById("dashboardSelect").value;
+  <!-- Main content -->
+  <div class="flex-1 p-8 ml-20 space-y-8">
+    <div class="py-4 px-6 flex justify-between items-center text-black">
+      <select class="dropdown" id="dashboardSelect" onchange="updateDashboard()">
+        <option value="marketing">Marketing Dashboard</option>
+        <option value="sales">Sales Dashboard</option>
+        <option value="inventory">Inventory Dashboard</option>
+        <option value="finance">Finance Reports</option>
+      </select>
+    </div>
 
-      switch (selectedValue) {
-        case "marketing":
-          iframe.src = "https://lookerstudio.google.com/embed/reporting/e2e04867-6b49-4300-a393-a0defb19566e/page/PP0FF";
-          break;
-        case "sales":
-          iframe.src = "https://lookerstudio.google.com/embed/reporting/ea73c330-e0e3-4d4e-be88-3e7bdcbc7cb5/page/0a93D";
-          break;
-        case "inventory":
-          iframe.src = "https://lookerstudio.google.com/embed/reporting/31e45c71-5970-408c-8329-e9b22241ca23/page/I4YHF";
-          break;
-        case "finance":
-          iframe.src = "https://lookerstudio.google.com/embed/reporting/49fdfd3c-f604-47e9-a204-ac985fbfb2ff/page/1S0XD";
-          break;
-        default:
-          iframe.src = "";
-      }
+    <div class="card">
+      <div class="iframe-container">
+        <iframe id="dashboardIframe" class="iframe-container" title="Dashboard"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateDashboard() {
+    const iframe = document.getElementById("dashboardIframe");
+    const selectedValue = document.getElementById("dashboardSelect").value;
+
+    switch (selectedValue) {
+      case "marketing":
+        iframe.src = "https://lookerstudio.google.com/embed/reporting/e2e04867-6b49-4300-a393-a0defb19566e/page/PP0FF";
+        break;
+      case "sales":
+        iframe.src = "https://lookerstudio.google.com/embed/reporting/ea73c330-e0e3-4d4e-be88-3e7bdcbc7cb5/page/0a93D";
+        break;
+      case "inventory":
+        iframe.src = "https://lookerstudio.google.com/embed/reporting/31e45c71-5970-408c-8329-e9b22241ca23/page/I4YHF";
+        break;
+      case "finance":
+        iframe.src = "https://lookerstudio.google.com/embed/reporting/49fdfd3c-f604-47e9-a204-ac985fbfb2ff/page/1S0XD";
+        break;
+      default:
+        iframe.src = "";
+    }
+  }
+
+  // Set default dashboard
+  updateDashboard();
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.classList.toggle("show");
+    document.getElementById("helpPopup").classList.remove("show");
+  }
+
+  function toggleHelp() {
+    const popup = document.getElementById("helpPopup");
+    popup.classList.toggle("show");
+    document.getElementById("userDropdown").classList.remove("show");
+  }
+
+  function logout() {
+    window.location.href = "login.html";
+  }
+
+  // Close dropdowns when clicking outside
+  document.addEventListener("click", function (e) {
+    const userDropdown = document.getElementById("userDropdown");
+    const helpPopup = document.getElementById("helpPopup");
+    const userIcon = document.querySelectorAll(".user-icon")[0];
+    const helpIcon = document.querySelectorAll(".user-icon")[2];
+
+    if (!userDropdown.contains(e.target) && !userIcon.contains(e.target)) {
+      userDropdown.classList.remove("show");
     }
 
-    // Default dashboard
-    updateDashboard();
-  </script>
+    if (!helpPopup.contains(e.target) && !helpIcon.contains(e.target)) {
+      helpPopup.classList.remove("show");
+    }
+  });
+</script>
 
 </body>
 </html>
