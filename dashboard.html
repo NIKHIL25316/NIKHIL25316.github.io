@@ -16,7 +16,7 @@
     .user-dropdown, .help-popup {
       position: absolute;
       background-color: white;
-      border: 1px solid #ccc;
+      border: 1px solid black;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       width: 180px;
@@ -34,6 +34,7 @@
       padding: 10px 16px;
       font-size: 14px;
       cursor: pointer;
+      color: black;
     }
 
     .logout-item {
@@ -56,6 +57,13 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 20px;
+      position: relative;
+    }
+
+    .iframe-container {
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
     .iframe-container iframe {
@@ -64,33 +72,51 @@
       border: none;
       border-radius: 8px;
     }
+
+    @media (max-width: 768px) {
+      .sidebar-icons {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: auto !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .user-dropdown,
+      .help-popup {
+        top: 60px !important;
+        left: 0 !important;
+        right: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
 
 <div class="flex flex-col md:flex-row min-h-screen">
   <!-- Sidebar -->
-  <div class="flex md:flex-col md:w-20 w-full md:h-screen h-auto bg-gradient-to-b from-indigo-500 to-cyan-400 text-white p-4 md:items-center justify-between md:justify-start">
+  <div class="flex md:flex-col sidebar-icons md:w-20 w-full bg-gradient-to-b from-indigo-500 to-cyan-400 text-white p-4 items-center md:justify-start">
     
     <!-- Profile Icon -->
-    <div class="relative mb-4 md:mb-6">
+    <div class="relative my-2">
       <div class="user-icon" onclick="toggleDropdown()" title="User">U</div>
-      <div id="userDropdown" class="user-dropdown mt-2 left-2 md:left-20 top-10 md:top-16">
+      <div id="userDropdown" class="user-dropdown mt-2 md:left-20 md:top-16">
         <div class="user-dropdown-item">demo</div>
         <div class="logout-item" onclick="logout()">Logout</div>
       </div>
     </div>
 
     <!-- Reports Icon -->
-    <div class="mb-4 md:mb-6">
+    <div class="relative my-2">
       <div class="user-icon" title="Reports">📊</div>
     </div>
 
     <!-- Help Icon -->
-    <div class="relative">
+    <div class="relative my-2">
       <div class="user-icon" onclick="toggleHelp()" title="Help">❓</div>
-      <div id="helpPopup" class="help-popup mt-2 left-2 md:left-20 top-10 md:top-40">
-        <div class="user-dropdown-item">Send queries to<br><b>demo@xyz.com</b></div>
+      <div id="helpPopup" class="help-popup mt-2 md:left-20 md:top-40">
+        <div class="user-dropdown-item text-black">Send queries to<br><b>demo@xyz.com</b></div>
       </div>
     </div>
   </div>
@@ -109,7 +135,7 @@
 
     <!-- Dashboard Iframe -->
     <div class="mt-4">
-      <div class="iframe-container w-full h-[70vh] border border-gray-200 rounded-md overflow-hidden">
+      <div class="iframe-container w-full h-[70vh]">
         <iframe 
           id="dashboardIframe"
           allowfullscreen
