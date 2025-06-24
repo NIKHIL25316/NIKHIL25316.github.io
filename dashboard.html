@@ -7,93 +7,90 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: #ffffff;
-      color: #2d3748;
-    }
-
-    .user-dropdown, .help-popup {
-      position: absolute;
-      background-color: white;
-      border: 1px solid black;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      width: 180px;
-      display: none;
-      z-index: 50;
-    }
-
-    .user-dropdown.show,
-    .help-popup.show {
-      display: block;
-    }
-
-    .user-dropdown-item,
-    .logout-item {
-      padding: 10px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      color: black;
-    }
-
-    .logout-item {
-      color: red;
-    }
-
-    .logout-item:hover {
-      background-color: #ffecec;
-    }
-
-    .user-icon {
-      background-color: white;
-      color: #6366f1;
-      border-radius: 9999px;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 20px;
-      position: relative;
-    }
-
-    .iframe-container {
-      border: 2px solid #d1d5db;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .iframe-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 768px) {
-  .sidebar-icons {
-    flex-direction: row !important;
-    justify-content: flex-start !important;
-    width: 100% !important;
-    height: auto !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 1rem;
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #ffffff;
+    color: #2d3748;
   }
 
-  .user-dropdown,
-  .help-popup {
-    top: 60px !important;
-    left: 1rem !important;
-    right: auto !important;
+  .user-dropdown, .help-popup {
+    position: absolute;
+    background-color: #eef2ff; /* noticeable background */
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 180px;
+    display: none;
+    z-index: 50;
   }
-}
 
+  .user-dropdown.show,
+  .help-popup.show {
+    display: block;
+  }
+
+  .user-dropdown-item,
+  .logout-item {
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #1a202c;
+  }
+
+  .logout-item {
+    color: red;
+  }
+
+  .logout-item:hover {
+    background-color: #ffecec;
+  }
+
+  .user-icon {
+    background-color: white;
+    color: #6366f1;
+    border-radius: 9999px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    transition: background-color 0.2s;
+  }
+
+  .user-icon:hover {
+    background-color: #e0e7ff;
+  }
+
+  .iframe-container {
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar-icons {
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+      height: auto !important;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      gap: 1rem;
     }
-  </style>
+  }
+</style>
+
 </head>
 <body>
 
@@ -103,8 +100,10 @@
     
     <!-- Profile Icon -->
     <div class="relative my-2">
-      <div class="user-icon" onclick="toggleDropdown()" title="User">U</div>
-      <div id="userDropdown" class="user-dropdown mt-2 md:left-20 md:top-16">
+      <div class="user-icon flex items-center gap-1" onclick="toggleDropdown()" title="User">
+        U <span class="text-xs">▼</span>
+      </div>
+      <div id="userDropdown" class="user-dropdown left-12 top-0">
         <div class="user-dropdown-item">demo</div>
         <div class="logout-item" onclick="logout()">Logout</div>
       </div>
@@ -118,7 +117,7 @@
     <!-- Help Icon -->
     <div class="relative my-2">
       <div class="user-icon" onclick="toggleHelp()" title="Help">❓</div>
-      <div id="helpPopup" class="help-popup mt-2 md:left-20 md:top-40">
+      <div id="helpPopup" class="help-popup left-12 top-0">
         <div class="user-dropdown-item text-black">Send queries to<br><b>demo@xyz.com</b></div>
       </div>
     </div>
@@ -126,15 +125,26 @@
 
   <!-- Main Content -->
   <div class="flex-1 p-4 md:p-8">
-    <!-- Dropdown -->
-    <div class="py-4">
-      <select class="w-full md:w-1/2 p-3 border border-gray-300 rounded-md text-gray-700" id="dashboardSelect" onchange="updateDashboard()">
-        <option value="marketing">Marketing Dashboard</option>
-        <option value="sales">Sales Dashboard</option>
-        <option value="inventory">Inventory Dashboard</option>
-        <option value="finance">Finance Reports</option>
-      </select>
+    <!-- Dashboard Dropdown -->
+<div class="py-4">
+  <label for="dashboardSelect" class="block text-lg font-semibold text-gray-700 mb-2">
+    Select a Dashboard
+  </label>
+  <div class="relative w-full md:w-1/2">
+    <select id="dashboardSelect" onchange="updateDashboard()"
+      class="w-full appearance-none p-3 pr-10 border border-indigo-400 rounded-md text-gray-800 shadow-md bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      <option value="marketing">Marketing Dashboard</option>
+      <option value="sales">Sales Dashboard</option>
+      <option value="inventory">Inventory Dashboard</option>
+      <option value="finance">Finance Reports</option>
+    </select>
+    <!-- Arrow Icon -->
+    <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-700">
+      ▼
     </div>
+  </div>
+</div>
+
 
     <!-- Dashboard Iframe -->
     <div class="mt-4">
@@ -177,12 +187,14 @@
   updateDashboard();
 
   function toggleDropdown() {
-    document.getElementById("userDropdown").classList.toggle("show");
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.classList.toggle("show");
     document.getElementById("helpPopup").classList.remove("show");
   }
 
   function toggleHelp() {
-    document.getElementById("helpPopup").classList.toggle("show");
+    const help = document.getElementById("helpPopup");
+    help.classList.toggle("show");
     document.getElementById("userDropdown").classList.remove("show");
   }
 
